@@ -1,47 +1,73 @@
 var start = document.getElementById('start');
+var stop = document.getElementById('stop');
 var reset = document.getElementById('reset');
 
-var h = document.getElementById("hour");
-var m = document.getElementById("minute");
-var s = document.getElementById("sec");
+var wm = document.getElementById('w_minutes');
+var ws = document.getElementById('w_seconds');
 
-var startTimer = null;
+var bm = document.getElementById('b_minutes');
+var bs = document.getElementById('b_seconds');
 
-function startInterval(){
-    h = document.getElementById("hour");
-    m = document.getElementById("minute");
-    s = document.getElementById("sec");
-    startTimer = setInterval(function() {
-        timer();
-    }, 1000);
-}
+var startTimer;
 
-function startCountDown() {
-    startInterval();
-}
-
-function reset() {
-    h.value = 0;
-    m.value = 0;
-    s.value = 0;
-    stopInterval()
-}
-
-function timer() {
-    if(h.value == 0 && m.value == 0 && s.value == 0){
-        h.value = 0;
-        m.value = 0;
-        s.value = 0;
-    } else if(s.value != 0){
-        s.value--;
-    } else if(m.value != 0 && s.value == 0){
-        s.value = 59;
-        m.value--;
-    } else if(h.value != 0 && m.value == 0){
-        m.value = 60;
-        h.value--;
+function startButton() {
+    if(startTimer === undefined){
+        startTimer = setInterval(timer, 1000)
+    } else {
+        alert("Timer is already running");
     }
 }
-function stopInterval() {
+
+function resetButton() {
+    wm.innerText = 25;
+    ws.innerText = "00";
+
+    bm.innerText = 5;
+    bs.innerText = "00";
+
+    document.getElementById('counter').innerText = 0;
+    stopInterval()
+    startTimer = undefined;
+}
+
+function stopButton() {
+    stopInterval()
+    startTimer = undefined;
+}
+
+function timer(){
+    wm = document.getElementById('w_minutes');
+    ws = document.getElementById('w_seconds');
+
+    bm = document.getElementById('b_minutes');
+    bs = document.getElementById('b_seconds');
+    if(ws.innerText != 0){
+        ws.innerText--;
+    } else if(wm.innerText != 0 && ws.innerText == 0){
+        ws.innerText = 59;
+        wm.innerText--;
+    }
+
+    if(wm.innerText == 0 && ws.innerText == 0){
+        if(bs.innerText != 0){
+            bs.innerText--;
+        } else if(bm.innerText != 0 && bs.innerText == 0){
+            bs.innerText = 59;
+            bm.innerText--;
+        }
+    }
+
+    if(wm.innerText == 0 && ws.innerText == 0 && bm.innerText == 0 && bs.innerText == 0){
+        wm.innerText = 25;
+        ws.innerText = "00";
+
+        bm.innerText = 5;
+        bs.innerText = "00";
+
+        document.getElementById('counter').innerText++;
+    }
+}
+
+function stopInterval(){
     clearInterval(startTimer);
 }
