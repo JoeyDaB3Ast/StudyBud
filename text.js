@@ -65,3 +65,5 @@ txtBtn.addEventListener("click", () => {
 pdfBtn.addEventListener('click', () => {
     html2pdf().from(content).save(filename.value)
 })
+
+

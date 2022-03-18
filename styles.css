@@ -439,3 +439,8 @@ button:hover{
   text-align: right;
   margin-bottom: 0.5rem;
 }
+#gradient-canvas {
+  height: 100vh;
+  width: 100%;
+  background: lightgrey;
+}
