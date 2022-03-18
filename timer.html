@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="main.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="timerStyle.css">
     <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"
     rel="stylesheet"
@@ -244,7 +244,13 @@
       </nav>
 
       <main>
-          <button onclick="">  </button>
+        <h1>Countdown Timer</h1>
+        <div id="container">
+            <p id="hour-label" class="label">Hours</p><p id="min-label" class="label">Minutes</p><p id="sec-label" class="label">Seconds</p>
+            <input id="hour" type="number" max="99" min="0" value="0" class="time"><p id="p1" class="semicolon">:</p><input id="minute" type="number" max="60" min="0" value="0" class="time"><p id="p2" class="semicolon">:</p><input id="sec" type="number" max="60" min="0" value="0" class="time">
+            <button id="start" class="btn" onclick="startCountDown()">Start</button>
+            <button id="reset" class="btn" onclick="reset()">Reset</button>
+        </div>
       </main>
 </body>
 </html>

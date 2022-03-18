@@ -1,20 +1,47 @@
-function countdownTimer() {
-    const difference = +new Date("2020-01-01") - +new Date();
-    let remaining = "Time's up!";
-  
-    if (difference > 0) {
-      const parts = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
-      remaining = Object.keys(parts).map(part => {
-      return `${parts[part]} ${part}`;  
-      }).join(" ");
+var start = document.getElementById('start');
+var reset = document.getElementById('reset');
+
+var h = document.getElementById("hour");
+var m = document.getElementById("minute");
+var s = document.getElementById("sec");
+
+var startTimer = null;
+
+function startInterval(){
+    h = document.getElementById("hour");
+    m = document.getElementById("minute");
+    s = document.getElementById("sec");
+    startTimer = setInterval(function() {
+        timer();
+    }, 1000);
+}
+
+function startCountDown() {
+    startInterval();
+}
+
+function reset() {
+    h.value = 0;
+    m.value = 0;
+    s.value = 0;
+    stopInterval()
+}
+
+function timer() {
+    if(h.value == 0 && m.value == 0 && s.value == 0){
+        h.value = 0;
+        m.value = 0;
+        s.value = 0;
+    } else if(s.value != 0){
+        s.value--;
+    } else if(m.value != 0 && s.value == 0){
+        s.value = 59;
+        m.value--;
+    } else if(h.value != 0 && m.value == 0){
+        m.value = 60;
+        h.value--;
     }
-  
-    document.getElementById("countdown").innerHTML = remaining;
-  }
-  
-  countDownTimer()
+}
+function stopInterval() {
+    clearInterval(startTimer);
+}
