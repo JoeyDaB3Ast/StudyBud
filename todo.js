@@ -304,8 +304,8 @@ function todoMain() {
       eventClick: function (info) {
         toEditItem(info.event);
       },
-      eventBackgroundColor: "#a11e12",
-      eventBorderColor: "#ed6a5e",
+      eventBackgroundColor: "#23232e",
+      eventBorderColor: "#2313e",
       editable: true,
       eventDrop: function (info) {
         calendarEventDragged(info.event);
@@ -326,7 +326,7 @@ function todoMain() {
       id: id,
       title: todo,
       start: time === "" ? date : `${date}T${time}`,
-      backgroundColor : (done ? "green" : "#a11e12"),
+      backgroundColor : (done ? "green" : "#12345"),
     });
   }
 
