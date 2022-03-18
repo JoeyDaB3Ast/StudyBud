@@ -371,11 +371,11 @@ h3 {
 .todo-overlay{
   width: 100vw;
   height: 100vh;
-  background-color: #ddd;
+  background-color: rgb(90, 62, 216);
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0.9;
+  opacity: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -401,7 +401,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
+  border-radius: 5px;
   color: white;
   font-weight: bold;
 }
@@ -439,8 +439,158 @@ button:hover{
   text-align: right;
   margin-bottom: 0.5rem;
 }
-#gradient-canvas {
+
+#homeMain {
   height: 100vh;
+  display: grid;
+  text-align: center;
+  margin-left: 0px;
+  padding: 0px;
+}
+
+#homeMain h1{
+  font-size: 60px;
+  font-weight: 600;
+  color: #fff;
+  font-family: "Open Sans";
+}
+
+.home {
+  padding-top: 5%;
+  height: 400px;
+  background-image: url(gradientBackground.png);
+}
+
+#homeMain button {
+  border-radius: 10px;
+  width: 200px;
+  height: 35px;
+}
+
+.main-container {
+  padding: 30px;
+}
+
+/* HEADING */
+
+.heading {
+  text-align: center;
+}
+
+.heading__title {
+  font-weight: 600;
+}
+
+.heading__credits {
+  margin: 10px 0px;
+  color: #888888;
+  font-size: 25px;
+  transition: all 0.5s;
+}
+
+.heading__link {
+  text-decoration: none;
+}
+
+.heading__credits .heading__link {
+  color: inherit;
+}
+
+/* CARDS */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  margin: 20px;
+  padding: 20px;
+  width: 250px;
+  min-height: 200px;
+  display: grid;
+  grid-template-rows: 20px 50px 1fr 50px;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+}
+
+.card__link,
+.card__exit,
+.card__icon {
+  position: relative;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.card__link::after {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: all 0.5s;
+}
+
+.card__link:hover::after {
   width: 100%;
-  background: lightgrey;
+}
+
+.card__exit {
+  grid-row: 1/2;
+  justify-self: end;
+}
+
+.card__icon {
+  grid-row: 2/3;
+  font-size: 30px;
+}
+
+.card__title {
+  grid-row: 3/4;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.card__apply {
+  grid-row: 4/5;
+  align-self: center;
+}
+
+/* CARD BACKGROUNDS */
+
+.card-1 {
+  background: radial-gradient(#1fe4f5, #3fbafe);
+}
+
+.card-2 {
+  background: radial-gradient(#fbc1cc, #fa99b2);
+}
+
+.card-3 {
+  background: radial-gradient(#76b2fe, #b69efe);
+}
+
+.card-4 {
+  background: radial-gradient(#60efbc, #58d5c9);
+}
+
+.card-5 {
+  background: radial-gradient(#f588d8, #c0a3e5);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1600px) {
+  .cards {
+    justify-content: center;
+  }
 }
