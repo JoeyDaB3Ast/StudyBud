@@ -8,25 +8,26 @@
     --transition-speed: 600ms;
   }
 
-  html {
-    background-color: #333232;
-    height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
+  #timerMain {
+    background-color: #8d8ecc;
+    height: 100vh;
+    display: grid;
+    align-items: center;
   }
 
   h1 {
       color: white;
-      font-family: Arial, Helvetica, sans-serif;
       text-align: center;
+      font-size: 50px;
   }
   
   #container {
       height: 200px;
-      width: 700px;
-      background-color: #F5E4C3;
+      width: 800px;
+      background-color: #ffffff;
       margin: 0 auto;
-      border: 5px solid #88B169;
-  
+      border: 5px solid #6038cf;
+      border-radius: 20px;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(3, 1fr);
@@ -66,7 +67,7 @@
   
   #counter {
       grid-area: 2 / 3 / 2 / 3;
-      color: red;
+      color: rgb(7, 153, 26);
   }
   
   #work-timer {
